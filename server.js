@@ -13,6 +13,7 @@ mongoose.connect('mongodb://localhost/social-network', {
 
 app.use(express.json());
 
+app.use('/api', require('./routes'));
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
