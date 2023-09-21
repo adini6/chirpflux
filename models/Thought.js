@@ -1,6 +1,8 @@
 const moment = require('moment');
 const { Schema } = require('mongoose');
 
+
+
 const thoughtSchema = new Schema({
   thoughtText: {
     type: String,
