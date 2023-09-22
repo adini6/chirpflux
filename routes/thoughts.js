@@ -7,9 +7,16 @@ const {
   deleteThought,
   createReaction,
   deleteReaction,
-} = require('../controllers/thoughtController'); // Import the relevant controller
+} = require('../controllers/thoughtController');
+console.log(getThoughts);
+console.log(getSingleThought);
+console.log(createThought);
+console.log(updateThought);
+console.log(deleteThought);
+
 
 router.get('/', getThoughts);
+console.log(getSingleThought);
 
 router.get('/:thoughtId', getSingleThought);
 
