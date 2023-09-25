@@ -1,8 +1,9 @@
 
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 const db = mongoose.connection;
-mongoose.connect('mongodb://127.0.0.1:27017/chirpflux', {
+mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
