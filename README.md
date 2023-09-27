@@ -9,7 +9,6 @@ A Social Network API built with Express.js, MongoDB, and Mongoose. This API allo
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Routes](#api-routes)
-- [Contributing](#contributing)
 - [License](#license)
 - [Questions](#questions)
 
@@ -75,6 +74,7 @@ Before starting, ensure you have Node.js installed on your system. Follow the st
 - POST /api/thoughts/:thoughtId/reactions - Create a reaction stored in a single thought.
 - DELETE /api/thoughts/:thoughtId/reactions/:reactionId - Pull and remove a reaction by the reaction's reactionId value.
 
+![insomnia](https://github.com/adini6/chirpflux/assets/28551058/9e3bcb1d-dee0-48bd-824f-bacb9ae5df2d)
 
 Walkthrough video
 
