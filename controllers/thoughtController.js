@@ -7,20 +7,19 @@ const thoughtController = {
     // Method to retrieve all thoughts
     async getAllThoughts(req, res) {
         try {
-            // Finding all thoughts in the database and responding with the results
-            const thoughts = await Thought.find({});
+            const thoughts = await Thought.find({}).populate('reactions');
             res.json(thoughts);
         } catch (err) {
-            // Responding with error details if an error occurs
             res.status(500).json(err);
         }
     },
+    
     
     // Method to retrieve a single thought by ID
     async getSingleThought(req, res) {
         try {
             // Finding one thought by ID and responding with the result
-            const thought = await Thought.findById(req.params.thoughtId);
+            const thought = await Thought.findById(req.params.thoughtId).populate('reactions');
             if (!thought) {
                 return res.status(404).json({ message: 'No thought found with this id!' });
             }
@@ -78,19 +77,26 @@ const thoughtController = {
     },
     
     // Method to add a reaction to a thought's reactions array
+
     async addReaction(req, res) {
         try {
-            // Updating the thought's reactions array with received body and responding with the updated thought
-            const thought = await Thought.findByIdAndUpdate(req.params.thoughtId, { $push: { reactions: req.body } }, { new: true });
-            if (!thought) {
-                return res.status(404).json({ message: 'No thought found with this id!' });
-            }
-            res.json(thought);
-        } catch (err) {
-            // Responding with error details if an error occurs
-            res.status(500).json(err);
-        }
-    },
+        // Creating a new unique ObjectId for the reaction
+            const reactionId = Types.ObjectId();
+            const newReaction = { ...req.body, reactionId };
+
+        const thought = await Thought.findByIdAndUpdate(
+            req.params.thoughtId,
+            { $push: { reactions: newReaction } },
+            { new: true }
+        );
+        
+        if (!thought) return res.status(404).json({ message: 'No thought found with this id!' });
+        
+        res.json(thought);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+},
     
     // Method to remove a reaction from a thought's reactions array by reactionId
     async removeReaction(req, res) {
