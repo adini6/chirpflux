@@ -76,7 +76,7 @@ Before starting, ensure you have Node.js installed on your system. Follow the st
 
 ![insomnia](https://github.com/adini6/chirpflux/assets/28551058/9e3bcb1d-dee0-48bd-824f-bacb9ae5df2d)
 
-Walkthrough video
+[Walkthrough video](https://drive.google.com/file/d/1mfiE1ah89dXL2SVgEBUd7CwMuVeuxiVn/view)
 
 
 ## License 
